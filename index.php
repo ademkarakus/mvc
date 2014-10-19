@@ -40,7 +40,4 @@ if(isset($url[0])){
 }
 
 
-echo "<h1 style=color:red;>6.videoda kaldım</h2>";
-
-
 ?>
