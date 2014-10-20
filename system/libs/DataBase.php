@@ -12,4 +12,36 @@ class DataBase extends PDO{
         $this->query("SET NAMES UTF8");
         $this->query("SET CHARACTER SET UTF8");  
     }
+    
+    //Veritabanı SELECT işlemleri
+    public function select($sql, $array = array(), $fetchMode = PDO::FETCH_ASSOC){
+        
+        $sth = $this->prepare($sql);
+        foreach ($array as $key => $value){
+            $sth->bindValue($key, $value);          
+        }
+            $sth->execute();
+            return $sth->fetchAll($fetchMode);
+        
+    }
+    
+    //Veritabanı INSERT işlemleri
+    public function insert($tableName, $data){
+        $fieldKeys =  implode(",", array_keys($data)) ;
+        $fieldValues = ":" . implode(", :", array_keys($data));
+        
+        $sql = "INSERT INTO $tableName($fieldKeys) VALUES ($fieldValues)";
+        $sth = $this->prepare($sql);
+        
+        foreach ($data as $key => $value){
+            $sth->bindValue(":$key", $value);
+        }
+        return $sth->execute();
+    }
+    
+    
+    //Veritabanı UPDATE işlemleri
+    public function update(){
+        ;
+    }
 }

@@ -7,8 +7,7 @@
 class Model {
     protected $db=array();
 
-
-    //put your code here
+    //DataBase Bağlantısı
     public function __construct() {
         $dsn = 'mysql:dbname=mvcdb;host=127.0.0.1';
         $user = 'root';

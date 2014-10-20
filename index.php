@@ -22,11 +22,10 @@ if(isset($url[0])){
     $c=new $url[0]();
     
     if(isset($url[2])){
-        
         $c->$url[1]($url[2]);
     }else{
-        if(isset($url[1])){
-            
+        
+        if(isset($url[1])){            
             $c->$url[1]();
         }else{
             echo "hata2";

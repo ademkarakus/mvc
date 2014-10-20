@@ -10,10 +10,16 @@ class Index_model extends Model{
         parent::__construct();
     }
     
+    //İsimListele select işlemleri
     public function isimListele(){
-        $sth=$this->db->query("SELECT * FROM deneme");
-        $dizi=$sth->fetchAll();
-        return $dizi;
+        $sql = "SELECT * FROM baslik";
+        
+        return $this->db->select($sql);
+    }
+    
+    //makaleKaydet insert işlemleri
+    public function makaleKaydet($data){
+        return $this->db->insert("makaleler", $data);
     }
     
 }
