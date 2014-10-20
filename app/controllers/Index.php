@@ -24,7 +24,7 @@ class Index extends Controller {
         $Index_model = $this->load->model("Index_model");
         $data['isimListele'] = $Index_model->isimListele();
         
-        
+        $this->load->view("isimListele" ,$data);
     }
     
     //yeniMakale_view Dosyası İşlemleri
