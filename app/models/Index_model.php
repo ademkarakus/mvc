@@ -21,5 +21,26 @@ class Index_model extends Model{
     public function makaleKaydet($data){
         return $this->db->insert("makaleler", $data);
     }
+ 
+    /*
+    public function guncelle(){
+        $data = array(
+            "baslik" => "Yeni Güncellenmiş Basilık",
+            "icerik" => "Yeni Güncellenmiş icerik",
+            "etiket" => "Yeni Güncellenmiş etiket"
+        );
+        $this->db->update("makaleler", $data, "id=5");
+    }
     
+    public function delete(){
+        $this->db->delete("makaleler", "id=4");
+    } 
+     * 
+     */    
+    
+    public function makaleListele(){
+        $sql = "SELECT * FROM makaleler";
+        
+        return $this->db->select($sql);
+    }
 }

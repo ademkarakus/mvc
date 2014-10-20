@@ -41,7 +41,23 @@ class DataBase extends PDO{
     
     
     //Veritabanı UPDATE işlemleri
-    public function update(){
-        ;
+    public function update($tableName, $data, $where){
+        $updateKeys = NULL;
+        foreach ($data as $key => $value){
+            $updateKeys .= "$key=:$key,";
+        }
+        
+        $updateKeys = rtrim($updateKeys, ",");
+        $sql = "UPDATE $tableName SET $updateKeys WHERE $where";
+        
+        $sth = $this->prepare($sql);
+        foreach ($data as $key => $value){
+            $sth->bindValue(":$key", $value);
+        }
+        return $sth->execute();
+    }
+    
+    public function delete($tableName, $where, $limit = 1){
+        $this->exec("DELETE FROM $tableName  WHERE $where LIMIT $limit");
     }
 }
