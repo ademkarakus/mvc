@@ -11,7 +11,7 @@ class Index_model extends Model{
     }
     
     //İsimListele select işlemleri
-    public function isimListele(){
+    public function isimListele(){        
         $sql = "SELECT * FROM baslik";
         
         return $this->db->select($sql);
