@@ -25,6 +25,18 @@ class DataBase extends PDO{
         
     }
     
+    //Veritabanı .... işlemleri
+    public function affectedRows($sql, $array = array()){
+        
+        $sth = $this->prepare($sql);
+        foreach ($array as $key => $value){
+            $sth->bindValue($key, $value);          
+        }
+            $sth->execute();
+            return $sth->rowCount(); //etkilenen satırları geri döndürüyor
+        
+    }    
+    
     //Veritabanı INSERT işlemleri
     public function insert($tableName, $data){
         $fieldKeys =  implode(",", array_keys($data)) ;
