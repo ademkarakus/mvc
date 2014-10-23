@@ -19,7 +19,7 @@ $(function(){
 	<div id="header">
 		<div id="top">
 			<div class="left">
-				<p>Hoşgeldiniz, <strong><?php echo $homepage["username"]; ?></strong> [ <a href="<?php echo SITE_URL; ?>/admin/logout">Çıkış Yap</a> ]</p>
+				<p>Hoşgeldiniz, <strong><?php echo $data; ?></strong> [ <a href="<?php echo SITE_URL; ?>/admin/logout">Çıkış Yap</a> ]</p>
 			</div>
 			<div class="right">
 				<div class="align-right">
